@@ -23,11 +23,21 @@ class App extends React.Component {
   componentDidMount() {
     window.navigator.geolocation.getCurrentPosition(
       position => {
-        this.setState({lat: position.coords.latitude, long: position.coords.longitude})
-        this.fetchData(position.coords.latitude, position.coords.longitude)
+        this.setState({lat: position.coords.latitude, long: position.coords.longitude});
+        this.fetchData(position.coords.latitude, position.coords.longitude);
       },
       err => this.setState({ errorMessage: err.message })
     );
+  }
+
+  convertTemperature = () => {
+    var values = document.getElementsByClassName("temperature-val");
+    console.log(values);
+    for (var i= 0; i < values.length; i++) {
+      let valueInCelsius = ((values[i].innerText - 32.0) * 5.0) / 9.0;
+      console.log('c',valueInCelsius);
+      values[i].innerText = ((values[i].innerText - 32.0) * 5.0) / 9.0;
+    }
   }
 
   renderContent() {
@@ -41,6 +51,7 @@ class App extends React.Component {
     if(!this.state.errorMessage && this.state.lat && Object.keys(this.state.forecast).length !== 0) {
         return (
         <div>
+          <button onClick={this.convertTemperature}>Convert</button>
           <Summary currentTemprature={this.state.forecast.currently.temperature}
           currentShortSummary={this.state.forecast.currently.summary}
           todaysHigh={this.state.forecast.daily.data[0].temperatureHigh}

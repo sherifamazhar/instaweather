@@ -18,10 +18,10 @@ class WeatherItemsScroller extends React.Component {
 
     render() {
         const hourlyItems = this.props.hourly.data.map((item) => {
-            return <WeatherItem key={item.time} hour={this.getHourFromTimestamp(item.time) + ':00'} icon={item.icon} temperature={item.temperature} />; 
+            return <WeatherItem className="weather-item" key={'h'+item.time} hour={this.getHourFromTimestamp(item.time) + ':00'} icon={item.icon} temperature={item.temperature} />; 
         });
         const dailyItems = this.props.daily.data.map((item) => {
-            return <WeatherItem key={item.time} day={this.getDayFromTimestamp(item.time)} icon={item.icon} temperature={item.temperatureHigh} />; 
+            return <WeatherItem className="weather-item" key={'d'+item.time} day={this.getDayFromTimestamp(item.time)} icon={item.icon} temperature={item.temperatureHigh} />; 
         });
 
         return (
