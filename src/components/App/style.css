@@ -4,6 +4,7 @@
 body {
   font-family: 'Work Sans', sans-serif;
   color: #fff;
+  text-align: center;
   min-height: 100vh;
   background: url(/app-background.png) #000;
   background-size: cover;
@@ -25,11 +26,6 @@ body {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-top: 0;
-  float: left;
-}
-
-#unit-toggle {
-  float: right;
 }
 
 #unit-toggle > button {
@@ -87,8 +83,17 @@ body {
 
 @media (min-width: 768px) {
   body {
+    text-align: left;
     margin: 30px 50px;
   }
+
+  #app-title {
+    float: left;
+  }
+  
+  #unit-toggle {
+    float: right;
+  }  
 }
 
 @media (min-width: 1025px) {

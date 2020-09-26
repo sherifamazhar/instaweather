@@ -1,5 +1,6 @@
 #summary {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
@@ -7,6 +8,7 @@
 #current {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 #current #location {
@@ -26,6 +28,10 @@
     letter-spacing: .05em;
 }
 
+#current canvas {
+    margin: 0 auto;
+}
+
 #current #current-short-summary {
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
@@ -36,7 +42,7 @@
 #today {
     display: flex;
     flex-direction: column;
-    text-align: right;
+    width: 100%;
 }
 
 #today #current-temperature {
@@ -63,4 +69,23 @@
     font-weight: 600;
     font-size: 24px;
     line-height: 28px;
+}
+
+@media (min-width: 1025px) {
+    #summary {
+        flex-direction: row;
+    }
+
+    #current,
+    #today {
+        width: auto;
+    }
+
+    #current canvas {
+        margin: 0;
+    }
+
+    #today {
+        text-align: right;
+    }    
 }

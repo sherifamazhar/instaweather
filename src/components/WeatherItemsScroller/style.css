@@ -29,9 +29,12 @@
     padding-left: 0;
     padding-right: 0;
     min-width: auto;
-    margin-right: 59px;
 
     transition: color .8s;
+}
+
+.MuiButtonBase-root.navbar-tab:not(:last-child) {
+    margin-right: 59px;
 }
 
 .MuiButtonBase-root.navbar-tab.Mui-selected {

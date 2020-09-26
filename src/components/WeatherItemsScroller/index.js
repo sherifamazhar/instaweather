@@ -4,6 +4,7 @@ import TabPanel from '../TabPanel';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import './style.css';
 
 class WeatherItemsScroller extends React.Component {
@@ -34,7 +35,7 @@ class WeatherItemsScroller extends React.Component {
         return (
             <div>
                 <AppBar position="relative" className="navbar-header">
-                    <Tabs value={this.state.activeTab} aria-label="simple tabs">
+                    <Tabs value={this.state.activeTab} aria-label="simple tabs" centered={window.innerWidth > 767 ? false : true }>
                         <Tab className="navbar-tab" value="hourly-panel" label="Hourly" onClick={() => this.setState({ activeTab: 'hourly-panel' })} disableRipple>{hourlyItems}</Tab>
                         <Tab className="navbar-tab" value="daily-panel" label="Daily" onClick={() => this.setState({ activeTab: 'daily-panel' })} disableRipple>{dailyItems}</Tab>
                     </Tabs>
