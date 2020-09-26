@@ -25,11 +25,17 @@ class WeatherItemsScroller extends React.Component {
     }
 
     render() {
-        const hourlyItems = this.props.hourly.data.map((item) => {
-            return <WeatherItem className="weather-item" key={'h'+item.time} label={this.getHourFromTimestamp(item.time) + ':00'} icon={item.icon} temperature={item.temperature} />; 
+        const hourlyItems = this.props.hourly.data.map((item, index) => {
+            if(index === 0)
+                return <WeatherItem className="weather-item" key={'h'+item.time} label="Now" icon={item.icon} temperature={item.temperature} />; 
+            else
+                return <WeatherItem className="weather-item" key={'h'+item.time} label={this.getHourFromTimestamp(item.time) + ':00'} icon={item.icon} temperature={item.temperature} />; 
         });
-        const dailyItems = this.props.daily.data.map((item) => {
-            return <WeatherItem className="weather-item" key={'d'+item.time} label={this.getDayFromTimestamp(item.time)} icon={item.icon} temperature={item.temperatureHigh} />; 
+        const dailyItems = this.props.daily.data.map((item, index) => {
+            if(index === 0)
+                return <WeatherItem className="weather-item" key={'d'+item.time} label="Today" icon={item.icon} temperature={item.temperatureHigh} />; 
+            else
+                return <WeatherItem className="weather-item" key={'d'+item.time} label={this.getDayFromTimestamp(item.time)} icon={item.icon} temperature={item.temperatureHigh} />; 
         });
 
         return (

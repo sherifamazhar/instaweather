@@ -28,6 +28,13 @@ class App extends React.Component {
       },
       err => this.setState({ errorMessage: err.message })
     );
+
+    const animatedElements = document.getElementsByClassName('animate-on-load');
+    setTimeout(() => {
+      for(let i = 0; i < animatedElements.length; i++) {
+          animatedElements[i].classList.add('loaded');
+      }
+    }, 500);
   }
 
   convertTemperature = (unit) => {
@@ -77,6 +84,9 @@ class App extends React.Component {
         </div>
         );
     }
+    return (
+    <div>Loading...</div>
+    );
   }
   
   render() {
