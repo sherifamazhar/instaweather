@@ -1,5 +1,6 @@
 import React from 'react';
 import Skycons, { SkyconsType } from 'react-skycons';
+import './style.css';
 
 class Summary extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ class Summary extends React.Component {
 
         const today = new Date();
         const weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-        const date = `${weekday[today.getDay()]} ${today.getDate()}, ${today.getYear()}`;
+        const date = `${weekday[today.getDay()]} ${today.getDate()}, ${today.getFullYear()}`;
 
         this.skycons = this.props.icon.toUpperCase().replace('-', '_');
         this.state = { date: date };
@@ -15,20 +16,29 @@ class Summary extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2>{this.props.location}</h2>
-                <label id="date">{this.state.date}</label>
-                <Skycons
-                color="#fff"
-                type={SkyconsType[this.skycons]}
-                animate={true}
-                size={24}
-                resizeClear={true}
-                />
-                <label>{this.props.currentShortSummary}</label>
-                <label><span className="temperature-val">{this.props.currentTemperature}</span>°</label>
-                <label><span className="temperature-val">{this.props.todaysHigh}</span>°/<span className="temperature-val">{this.props.todaysLow}</span>°</label>
-                <label>{this.props.todaysSummary}</label>
+            <div id="summary">
+                <div id="current">
+                    <h2 id="location">{this.props.location}</h2>
+                    <label id="date">{this.state.date}</label>
+                    <Skycons
+                    color="rgba(255,255,255,.8)"
+                    type={SkyconsType[this.skycons]}
+                    animate={false}
+                    size={80}
+                    resizeClear={true}
+                    />
+                    <label id="current-short-summary">{this.props.currentShortSummary}</label>
+                </div>
+                <div id="today">
+                    <label id="current-temperature">
+                        <span className="temperature-val">{Math.round(this.props.currentTemperature)}</span>°
+                    </label>
+                    <label id="todays-temperatures">
+                        <span className="temperature-val">{Math.round(this.props.todaysHigh)}</span>°/
+                        <span id="less-opacity"><span className="temperature-val">{Math.round(this.props.todaysLow)}</span>°</span>
+                    </label>
+                    <label id="todays-summary">{this.props.todaysSummary.replace(/[.]/g,"")}</label>
+                </div>
             </div>
         );
     }

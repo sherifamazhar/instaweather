@@ -14,11 +14,9 @@ function TabPanel(props) {
       aria-labelledby={`horizontal-tab-${index}`}
       {...other}
     >
-      {value === index && (
         <Box p={3}>
           {children}
         </Box>
-      )}
     </div>
   );
 }

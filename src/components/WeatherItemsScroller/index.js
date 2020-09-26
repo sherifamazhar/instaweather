@@ -35,8 +35,8 @@ class WeatherItemsScroller extends React.Component {
             <div>
                 <AppBar position="relative" className="navbar-header">
                     <Tabs value={this.state.activeTab} aria-label="simple tabs">
-                        <Tab className="navbar-tab" value="hourly-panel" label="Hourly" onClick={() => this.setState({ activeTab: 'hourly-panel' })}>{hourlyItems}</Tab>
-                        <Tab className="navbar-tab" value="daily-panel" label="Daily" onClick={() => this.setState({ activeTab: 'daily-panel' })}>{dailyItems}</Tab>
+                        <Tab className="navbar-tab" value="hourly-panel" label="Hourly" onClick={() => this.setState({ activeTab: 'hourly-panel' })} disableRipple>{hourlyItems}</Tab>
+                        <Tab className="navbar-tab" value="daily-panel" label="Daily" onClick={() => this.setState({ activeTab: 'daily-panel' })} disableRipple>{dailyItems}</Tab>
                     </Tabs>
                 </AppBar>
                 <TabPanel value={this.state.activeTab} index="hourly-panel">

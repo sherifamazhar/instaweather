@@ -15,13 +15,15 @@ class WeatherItem extends React.Component {
             <div className="weather-item">
                 <h4 className="temperature-label">{this.props.label}</h4>
                 <Skycons
-                color="#fff"
+                color="rgba(255,255,255,.8)"
                 type={SkyconsType[this.skycons]}
                 animate={false}
                 size={50}
                 resizeClear={true}
                 />
-                <h5 className="temperature-container"><span className="temperature-val">{Math.round(this.props.temperature)}</span>°</h5>
+                <h5 className="temperature-container">
+                    <span className="temperature-val">{Math.round(this.props.temperature)}</span>°
+                </h5>
             </div>
         );
     }

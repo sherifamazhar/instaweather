@@ -12,16 +12,77 @@ body {
   margin: 30px;
 }
 
-h1#app-title {
-  position: absolute;
-  left: 120px;
-  top: 41px;
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
+#app-title {
   font-weight: bold;
   font-size: 36px;
   line-height: 42px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+  margin-top: 0;
+  float: left;
+}
+
+#unit-toggle {
+  float: right;
+}
+
+#unit-toggle > button {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  color: #fff;
+  letter-spacing: 0.05em;
+
+  position: relative;
+  background: transparent;
+  outline: none;
+  border: none;
+
+  width: 76px;
+  height: 48px;
+
+  cursor: pointer;
+}
+
+#unit-toggle > button#c-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 100%;
+  background: rgba(255,255,255,.25);
+  transition: left .3s ease-in-out;
+}
+
+#unit-toggle > button#c-btn.active::before {
+  left: 0;
+}
+
+#unit-toggle > button#f-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 100%;
+  bottom: 0;
+  left: 0;
+  background: rgba(255,255,255,.25);
+  transition: right .3s ease-in-out;
+}
+
+#unit-toggle > button#f-btn.active::before {
+  right: 0;
+}
+
+#unit-toggle > #f-btn {
+  border-left: 2px solid #fff;
 }
 
 @media (min-width: 768px) {

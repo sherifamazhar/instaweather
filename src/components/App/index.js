@@ -34,11 +34,17 @@ class App extends React.Component {
     var values = document.getElementsByClassName("temperature-val");
 
     if(unit === 'c' && this.state.unit === 'f') {
+      document.getElementById('c-btn').classList.add('active');
+      document.getElementById('f-btn').classList.remove('active');
+
       for (let i = 0; i < values.length; i++) {
         values[i].innerText = Math.round(((values[i].innerText - 32.0) * 5.0) / 9.0);
         this.setState({unit: 'c'});
       }
     } else if(unit === 'f' && this.state.unit === 'c') {
+      document.getElementById('f-btn').classList.add('active');
+      document.getElementById('c-btn').classList.remove('active');
+
       for (let i = 0; i < values.length; i++) {
         values[i].innerText = Math.round((values[i].innerText * 9/5) + 32);
         this.setState({unit: 'f'});
@@ -48,11 +54,13 @@ class App extends React.Component {
 
   renderContent() {
     if(this.state.errorMessage && !this.state.lat && Object.keys(this.state.forecast).length === 0) {
+      if(this.state.errorMessage === "User denied Geolocation") {
         return (
             <div>
-            Error: {this.state.errorMessage}
+            Please give permission to Instaweather to access your location.
             </div>
         );
+      }
     }
     if(!this.state.errorMessage && this.state.lat && Object.keys(this.state.forecast).length !== 0) {
         return (
@@ -69,18 +77,16 @@ class App extends React.Component {
         </div>
         );
     }
-    
-    return "Please accept location request";
   }
   
   render() {
       return (
         <div>
-          <header>
+          <header className="clearfix">
             <h1 id="app-title">Instaweather</h1>
-            <div>
-              <button onClick={() => this.convertTemperature('c')}>C</button>
-              <button onClick={() => this.convertTemperature('f')}>F</button>
+            <div id="unit-toggle">
+              <button id="c-btn" onClick={() => this.convertTemperature('c')}>C</button>
+              <button id="f-btn" className="active" onClick={() => this.convertTemperature('f')}>F</button>
             </div>
           </header>
           {this.renderContent()}

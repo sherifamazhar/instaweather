@@ -1,0 +1,66 @@
+#summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+#current {
+    display: flex;
+    flex-direction: column;
+}
+
+#current #location {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    letter-spacing: .05em;
+    margin: 0;
+}
+
+#current #date {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: .05em;
+}
+
+#current #current-short-summary {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+#today {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+#today #current-temperature {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 144px;
+    line-height: 169px;
+    letter-spacing: .05em;
+}
+
+#today #todays-temperatures {
+    font-family: 'Work Sans', sans-serif;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: .05em;
+}
+
+#today #todays-temperatures span#less-opacity {
+    opacity: .75;
+}
+
+#today #todays-summary {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+}
