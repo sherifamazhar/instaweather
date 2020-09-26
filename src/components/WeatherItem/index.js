@@ -1,5 +1,6 @@
 import React from 'react';
 import Skycons, { SkyconsType } from 'react-skycons';
+import './style.css';
 
 class WeatherItem extends React.Component {
     constructor(props) {
@@ -11,15 +12,16 @@ class WeatherItem extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="weather-item">
+                <h4 className="temperature-label">{this.props.label}</h4>
                 <Skycons
                 color="#fff"
                 type={SkyconsType[this.skycons]}
-                animate={true}
-                size={24}
+                animate={false}
+                size={50}
                 resizeClear={true}
                 />
-                <span className="temperature-val">{Math.round(this.props.temperature)}</span>°
+                <h5 className="temperature-container"><span className="temperature-val">{Math.round(this.props.temperature)}</span>°</h5>
             </div>
         );
     }

@@ -8,7 +8,7 @@ import './style.css';
 
 class WeatherItemsScroller extends React.Component {
 
-    state = { activeTab: 'hourly-pane' };
+    state = { activeTab: 'hourly-panel' };
 
     getHourFromTimestamp = (timestamp) => {
         const currentDate = new Date(timestamp * 1000);
@@ -25,24 +25,24 @@ class WeatherItemsScroller extends React.Component {
 
     render() {
         const hourlyItems = this.props.hourly.data.map((item) => {
-            return <WeatherItem className="weather-item" key={'h'+item.time} hour={this.getHourFromTimestamp(item.time) + ':00'} icon={item.icon} temperature={item.temperature} />; 
+            return <WeatherItem className="weather-item" key={'h'+item.time} label={this.getHourFromTimestamp(item.time) + ':00'} icon={item.icon} temperature={item.temperature} />; 
         });
         const dailyItems = this.props.daily.data.map((item) => {
-            return <WeatherItem className="weather-item" key={'d'+item.time} day={this.getDayFromTimestamp(item.time)} icon={item.icon} temperature={item.temperatureHigh} />; 
+            return <WeatherItem className="weather-item" key={'d'+item.time} label={this.getDayFromTimestamp(item.time)} icon={item.icon} temperature={item.temperatureHigh} />; 
         });
 
         return (
             <div>
                 <AppBar position="relative" className="navbar-header">
                     <Tabs value={this.state.activeTab} aria-label="simple tabs">
-                        <Tab className="navbar-tab" value="hourly-pane" label="Hourly" onClick={() => this.setState({ activeTab: 'hourly-pane' })}>{hourlyItems}</Tab>
-                        <Tab className="navbar-tab" value="daily-pane" label="Daily" onClick={() => this.setState({ activeTab: 'daily-pane' })}>{dailyItems}</Tab>
+                        <Tab className="navbar-tab" value="hourly-panel" label="Hourly" onClick={() => this.setState({ activeTab: 'hourly-panel' })}>{hourlyItems}</Tab>
+                        <Tab className="navbar-tab" value="daily-panel" label="Daily" onClick={() => this.setState({ activeTab: 'daily-panel' })}>{dailyItems}</Tab>
                     </Tabs>
                 </AppBar>
-                <TabPanel value={this.state.activeTab} index="hourly-pane">
+                <TabPanel value={this.state.activeTab} index="hourly-panel">
                     {hourlyItems}
                 </TabPanel>
-                <TabPanel value={this.state.activeTab} index="daily-pane">
+                <TabPanel value={this.state.activeTab} index="daily-panel">
                     {dailyItems}
                 </TabPanel>
             </div>

@@ -26,7 +26,7 @@ class Summary extends React.Component {
                 resizeClear={true}
                 />
                 <label>{this.props.currentShortSummary}</label>
-                <label><span className="temperature-val">{this.props.currentTemprature}</span>°</label>
+                <label><span className="temperature-val">{this.props.currentTemperature}</span>°</label>
                 <label><span className="temperature-val">{this.props.todaysHigh}</span>°/<span className="temperature-val">{this.props.todaysLow}</span>°</label>
                 <label>{this.props.todaysSummary}</label>
             </div>

@@ -57,7 +57,7 @@ class App extends React.Component {
     if(!this.state.errorMessage && this.state.lat && Object.keys(this.state.forecast).length !== 0) {
         return (
         <div>
-          <Summary currentTemprature={this.state.forecast.currently.temperature}
+          <Summary currentTemperature={this.state.forecast.currently.temperature}
           currentShortSummary={this.state.forecast.currently.summary}
           todaysHigh={this.state.forecast.daily.data[0].temperatureHigh}
           todaysLow={this.state.forecast.daily.data[0].temperatureLow}

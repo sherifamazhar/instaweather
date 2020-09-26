@@ -4,10 +4,12 @@
 body {
   font-family: 'Work Sans', sans-serif;
   color: #fff;
-  height: 100vh;
+  min-height: 100vh;
   background: url(/app-background.png) #000;
   background-size: cover;
   background-repeat: no-repeat;
+  overflow-x: hidden;
+  margin: 30px;
 }
 
 h1#app-title {
@@ -20,4 +22,16 @@ h1#app-title {
   line-height: 42px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 30px 50px;
+  }
+}
+
+@media (min-width: 1025px) {
+  body {
+    margin: 30px 80px;
+  }
 }

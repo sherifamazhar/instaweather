@@ -1,0 +1,32 @@
+.weather-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.weather-item:not(:first-child) {
+    margin-left: 30px;
+}
+
+.temperature-label {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin: 0;
+}
+
+canvas {
+    margin: 10px;
+}
+
+.temperature-container {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin: 0;
+}
