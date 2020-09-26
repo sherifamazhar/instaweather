@@ -1,7 +1,14 @@
 import React from 'react';
 import WeatherItem from '../WeatherItem';
+import TabPanel from '../TabPanel';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import './style.css';
 
 class WeatherItemsScroller extends React.Component {
+
+    state = { activeTab: 'hourly-pane' };
 
     getHourFromTimestamp = (timestamp) => {
         const currentDate = new Date(timestamp * 1000);
@@ -26,8 +33,18 @@ class WeatherItemsScroller extends React.Component {
 
         return (
             <div>
-                {hourlyItems}
-                {dailyItems}
+                <AppBar position="relative" className="navbar-header">
+                    <Tabs value={this.state.activeTab} aria-label="simple tabs">
+                        <Tab className="navbar-tab" value="hourly-pane" label="Hourly" onClick={() => this.setState({ activeTab: 'hourly-pane' })}>{hourlyItems}</Tab>
+                        <Tab className="navbar-tab" value="daily-pane" label="Daily" onClick={() => this.setState({ activeTab: 'daily-pane' })}>{dailyItems}</Tab>
+                    </Tabs>
+                </AppBar>
+                <TabPanel value={this.state.activeTab} index="hourly-pane">
+                    {hourlyItems}
+                </TabPanel>
+                <TabPanel value={this.state.activeTab} index="daily-pane">
+                    {dailyItems}
+                </TabPanel>
             </div>
         );
     }

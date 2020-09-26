@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700');
+
+.MuiAppBar-colorPrimary.navbar-header {
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.MuiTabs-scroller.MuiTabs-fixed {
+    overflow: auto;
+}
+
+.MuiButtonBase-root.navbar-tab {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: bold;
+    font-size: 22px;
+    line-height: 26px;
+    text-transform: none;
+    color: rgba(255,255,255,.75);
+
+    padding-left: 0;
+    padding-right: 0;
+    min-width: auto;
+    margin-right: 59px;
+
+    transition: color .8s;
+}
+
+.MuiButtonBase-root.navbar-tab.Mui-selected {
+    color: #fff;
+}
+
+.PrivateTabIndicator-root-1.PrivateTabIndicator-colorSecondary-3 {
+    height: 3px;
+    background-color: #fff;
+}

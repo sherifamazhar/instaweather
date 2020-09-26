@@ -13,13 +13,13 @@ class WeatherItem extends React.Component {
         return (
             <div>
                 <Skycons
-                color="black"
+                color="#fff"
                 type={SkyconsType[this.skycons]}
                 animate={true}
                 size={24}
                 resizeClear={true}
                 />
-                <span className="temperature-val">{Math.round(this.props.temperature)}</span>
+                <span className="temperature-val">{Math.round(this.props.temperature)}</span>°
             </div>
         );
     }

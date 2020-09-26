@@ -8,7 +8,7 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { lat: null, long: null, forecast: [], errorMessage: '' };
+    this.state = { lat: null, long: null, forecast: [], errorMessage: '', unit: 'f' };
   }
 
   fetchData = async (lat, long) => {
@@ -30,13 +30,19 @@ class App extends React.Component {
     );
   }
 
-  convertTemperature = () => {
+  convertTemperature = (unit) => {
     var values = document.getElementsByClassName("temperature-val");
-    console.log(values);
-    for (var i= 0; i < values.length; i++) {
-      let valueInCelsius = ((values[i].innerText - 32.0) * 5.0) / 9.0;
-      console.log('c',valueInCelsius);
-      values[i].innerText = ((values[i].innerText - 32.0) * 5.0) / 9.0;
+
+    if(unit === 'c' && this.state.unit === 'f') {
+      for (let i = 0; i < values.length; i++) {
+        values[i].innerText = Math.round(((values[i].innerText - 32.0) * 5.0) / 9.0);
+        this.setState({unit: 'c'});
+      }
+    } else if(unit === 'f' && this.state.unit === 'c') {
+      for (let i = 0; i < values.length; i++) {
+        values[i].innerText = Math.round((values[i].innerText * 9/5) + 32);
+        this.setState({unit: 'f'});
+      }
     }
   }
 
@@ -51,13 +57,13 @@ class App extends React.Component {
     if(!this.state.errorMessage && this.state.lat && Object.keys(this.state.forecast).length !== 0) {
         return (
         <div>
-          <button onClick={this.convertTemperature}>Convert</button>
           <Summary currentTemprature={this.state.forecast.currently.temperature}
           currentShortSummary={this.state.forecast.currently.summary}
           todaysHigh={this.state.forecast.daily.data[0].temperatureHigh}
           todaysLow={this.state.forecast.daily.data[0].temperatureLow}
           location={this.state.forecast.timezone.split('/')[1]}
           todaysSummary={this.state.forecast.hourly.summary}
+          icon={this.state.forecast.currently.icon}
           ></Summary>
           <WeatherItemsScroller hourly={this.state.forecast.hourly} daily={this.state.forecast.daily}></WeatherItemsScroller>
         </div>
@@ -70,6 +76,13 @@ class App extends React.Component {
   render() {
       return (
         <div>
+          <header>
+            <h1 id="app-title">Instaweather</h1>
+            <div>
+              <button onClick={() => this.convertTemperature('c')}>C</button>
+              <button onClick={() => this.convertTemperature('f')}>F</button>
+            </div>
+          </header>
           {this.renderContent()}
         </div>
       );
