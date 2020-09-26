@@ -82,7 +82,7 @@ class App extends React.Component {
   render() {
       return (
         <div>
-          <header className="clearfix">
+          <header id="app-header" className="clearfix">
             <h1 id="app-title">Instaweather</h1>
             <div id="unit-toggle">
               <button id="c-btn" onClick={() => this.convertTemperature('c')}>C</button>

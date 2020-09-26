@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+    margin-bottom: 30px;
 }
 
 #current {
@@ -14,8 +15,7 @@
 #current #location {
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
-    font-size: 64px;
-    line-height: 75px;
+    font-size: 50px;
     letter-spacing: .05em;
     margin: 0;
 }
@@ -23,8 +23,8 @@
 #current #date {
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
-    font-size: 20px;
-    line-height: 23px;
+    font-size: 16px;
+    line-height: 1.5em;
     letter-spacing: .05em;
 }
 
@@ -35,8 +35,7 @@
 #current #current-short-summary {
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 24px;
 }
 
 #today {
@@ -48,15 +47,14 @@
 #today #current-temperature {
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
-    font-size: 144px;
-    line-height: 169px;
+    font-size: 92px;
     letter-spacing: .05em;
 }
 
 #today #todays-temperatures {
     font-family: 'Work Sans', sans-serif;
-    font-size: 48px;
-    line-height: 56px;
+    font-size: 38px;
+    line-height: 1.5em;
     letter-spacing: .05em;
 }
 
@@ -67,11 +65,10 @@
 #today #todays-summary {
     font-family: 'Work Sans', sans-serif;
     font-weight: 600;
-    font-size: 24px;
-    line-height: 28px;
+    font-size: 18px;
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 480px) {
     #summary {
         flex-direction: row;
     }

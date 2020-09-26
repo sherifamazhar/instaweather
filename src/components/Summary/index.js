@@ -31,11 +31,11 @@ class Summary extends React.Component {
                 </div>
                 <div id="today">
                     <label id="current-temperature">
-                        <span className="temperature-val">{Math.round(this.props.currentTemperature)}</span>°
+                        <span className="temperature-val">{Math.round(this.props.currentTemperature)}</span><sup>°</sup>
                     </label>
                     <label id="todays-temperatures">
-                        <span className="temperature-val">{Math.round(this.props.todaysHigh)}</span>°/
-                        <span id="less-opacity"><span className="temperature-val">{Math.round(this.props.todaysLow)}</span>°</span>
+                        <span className="temperature-val">{Math.round(this.props.todaysHigh)}</span><sup>°</sup>/
+                        <span id="less-opacity"><span className="temperature-val">{Math.round(this.props.todaysLow)}</span><sup>°</sup></span>
                     </label>
                     <label id="todays-summary">{this.props.todaysSummary.replace(/[.]/g,"")}</label>
                 </div>

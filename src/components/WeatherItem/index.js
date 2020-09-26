@@ -22,7 +22,7 @@ class WeatherItem extends React.Component {
                 resizeClear={true}
                 />
                 <h5 className="temperature-container">
-                    <span className="temperature-val">{Math.round(this.props.temperature)}</span>°
+                    <span className="temperature-val">{Math.round(this.props.temperature)}</span><sup>°</sup>
                 </h5>
             </div>
         );

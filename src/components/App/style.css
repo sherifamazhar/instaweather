@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Work+Sans');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@700');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600');
 
 body {
   font-family: 'Work Sans', sans-serif;
@@ -9,6 +10,7 @@ body {
   background: url(/app-background.png) #000;
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   overflow-x: hidden;
   margin: 30px;
 }
@@ -19,10 +21,13 @@ body {
   display: table;
 }
 
+#app-header {
+  margin-bottom: 50px;
+}
+
 #app-title {
   font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 28px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-top: 0;
@@ -31,8 +36,7 @@ body {
 #unit-toggle > button {
   font-family: 'Work Sans', sans-serif;
   font-weight: 600;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 20px;
   color: #fff;
   letter-spacing: 0.05em;
 
@@ -41,8 +45,8 @@ body {
   outline: none;
   border: none;
 
-  width: 76px;
-  height: 48px;
+  width: 60px;
+  height: 38px;
 
   cursor: pointer;
 }
@@ -81,10 +85,9 @@ body {
   border-left: 2px solid #fff;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 480px) {
   body {
     text-align: left;
-    margin: 30px 50px;
   }
 
   #app-title {
@@ -93,7 +96,13 @@ body {
   
   #unit-toggle {
     float: right;
-  }  
+  } 
+}
+
+@media (min-width: 768px) {
+  body {
+    margin: 30px 50px;
+  } 
 }
 
 @media (min-width: 1025px) {
